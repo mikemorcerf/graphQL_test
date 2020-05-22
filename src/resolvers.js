@@ -17,15 +17,3 @@ module.exports = {
     deleteTodo: (_, {id}) => Todo.findByIdAndDelete(id).then()
   }
 };
-
-// Query: {
-//   todos: () => {},
-//   todo: () => {}
-// },
-
-// Mutation: {
-//   createTodo: () => {},
-//   checkTodo: () => {},
-//   updateTodo: () => {},
-//   deleteTodo: () => {}
-// },
