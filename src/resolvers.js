@@ -1,10 +1,13 @@
 module.exports = {
   Query: {
     todos: () => {},
-    todo: () => {}
+    todo: (id) => {}
   },
 
   Mutation: {
-    createTodo: () => {}
+    createTodo: () => {},
+    checkTodo: () => {},
+    updateTodo: (description) => {},
+    deleteTodo: (id) => {}
   },
 };
