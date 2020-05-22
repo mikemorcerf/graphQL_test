@@ -5,7 +5,9 @@ const { GraphQLServer } = require('graphql-yoga');
 const resolvers = require('./resolvers');
 
 mongoose.connect('mongodb://localhost:27017/graphqltest', {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 const server = new GraphQLServer({

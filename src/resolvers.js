@@ -1,13 +1,31 @@
+const Todo = require('./Todo');
+
 module.exports = {
   Query: {
-    todos: () => {},
-    todo: (id) => {}
+    todos: () => Todo.find(),
+
+    todo: (_, { id }) => Todo.findById(id)
   },
 
   Mutation: {
-    createTodo: () => {},
-    checkTodo: () => {},
-    updateTodo: (description) => {},
-    deleteTodo: (id) => {}
-  },
+    createTodo: (_, { description }) => Todo.create({ description, checked: false }),
+
+    checkedTodo: (_, {id, checked}) => Todo.findByIdAndUpdate(id, {checked: checked}),
+
+    updateTodo: (_, {id, description}) => Todo.findByIdAndUpdate(id, {description: description}),
+
+    deleteTodo: (_, {id}) => Todo.findByIdAndDelete(id).then()
+  }
 };
+
+// Query: {
+//   todos: () => {},
+//   todo: () => {}
+// },
+
+// Mutation: {
+//   createTodo: () => {},
+//   checkTodo: () => {},
+//   updateTodo: () => {},
+//   deleteTodo: () => {}
+// },
